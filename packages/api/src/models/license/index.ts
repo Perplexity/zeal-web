@@ -1,7 +1,7 @@
-import moment from 'moment';
-import { OkPacket, RowDataPacket } from 'mysql2';
-import { License } from 'src/types';
-import { db } from '../../db';
+import moment from "moment";
+import { OkPacket, RowDataPacket } from "mysql2";
+import { License } from "../../types";
+import { db } from "../../db";
 
 export const findOne = async (license_id: number): Promise<any> => {
 	const query = `
@@ -55,7 +55,7 @@ WHERE
 };
 
 export const fromKey = async (license_key: string): Promise<number | false> => {
-	const query = 'SELECT * FROM licenses WHERE `key` = ? AND redeemed = 0';
+	const query = "SELECT * FROM licenses WHERE `key` = ? AND redeemed = 0";
 	const [result] = await db.promise().query(query, license_key);
 	const rows = <RowDataPacket[]>result;
 	const licenses = <any[]>rows;
@@ -69,12 +69,12 @@ export const fromKey = async (license_key: string): Promise<number | false> => {
 export const redeem = async (user_id: number, license_id: number): Promise<boolean> => {
 	const license = await findOne(license_id);
 	if(license) {
-		let query = 'INSERT INTO license_redemptions (user_id, license_id, date_redeemed, date_expires) VALUES (?, ?, ?, ?)';
+		let query = "INSERT INTO license_redemptions (user_id, license_id, date_redeemed, date_expires) VALUES (?, ?, ?, ?)";
 		const now = moment().valueOf();
 		let [result] = await db.promise().query(query, [user_id, license_id, now, now + license.sub_time]);
 		let ok = (<OkPacket>result);
 		if(ok.insertId > 0) {
-			query = 'UPDATE licenses SET redeemed = 1 WHERE id = ?';
+			query = "UPDATE licenses SET redeemed = 1 WHERE id = ?";
 			[result] = await db.promise().query(query, license_id);
 			ok = (<OkPacket>result);
 			return ok.affectedRows > 0;

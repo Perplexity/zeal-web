@@ -1,10 +1,10 @@
-import { Request, Response, Router } from 'express';
-import { StatusCodes } from 'http-status-codes';
-import validateAuthToken from 'src/middleware/auth';
-import * as comboModel from 'src/models/combo';
-import * as jobModel from 'src/models/job';
-import * as resultModel from 'src/models/result';
-import { ComboResult, Summoner } from 'src/types';
+import { Request, Response, Router } from "express";
+import { StatusCodes } from "http-status-codes";
+import validateAuthToken from "../../middleware/auth";
+import * as comboModel from "../../models/combo";
+import * as jobModel from "../../models/job";
+import * as resultModel from "../../models/result";
+import { ComboResult, Summoner } from "../../types";
 
 const router = Router();
 
@@ -13,14 +13,14 @@ interface ResultRequest {
   summoner?: Summoner;
 }
 
-router.get('/', validateAuthToken, async (req: Request, res: Response) => {
+router.get("/", validateAuthToken, async (req: Request, res: Response) => {
 	const { user } = req.body;
 	const jobs = await jobModel.findAll(user.id);
 	return res.status(StatusCodes.OK).json(jobs);
 });
 
 router.get(
-	'/:job_id/combos',
+	"/:job_id/combos",
 	validateAuthToken,
 	async (req: Request, res: Response) => {
 		const { user, isRoot } = req.body;
@@ -35,7 +35,7 @@ router.get(
 );
 
 router.post(
-	'/:job_id/complete',
+	"/:job_id/complete",
 	validateAuthToken,
 	async (req: Request, res: Response) => {
 		const { isRoot } = req.body;
@@ -46,7 +46,7 @@ router.post(
 			} else {
 				return res
 					.status(StatusCodes.BAD_REQUEST)
-					.json({ error: 'Failed to mark job as complete' });
+					.json({ error: "Failed to mark job as complete" });
 			}
 		} else {
 			return res.status(StatusCodes.NOT_FOUND).send();
@@ -55,7 +55,7 @@ router.post(
 );
 
 router.get(
-	'/results/:job_id',
+	"/results/:job_id",
 	validateAuthToken,
 	async (req: Request, res: Response) => {
 		const { user } = req.body;
@@ -70,7 +70,7 @@ router.get(
 );
 
 router.post(
-	'/results/:combo_id',
+	"/results/:combo_id",
 	validateAuthToken,
 	async (req: Request, res: Response) => {
 		const { isRoot } = req.body;
@@ -79,7 +79,7 @@ router.post(
 			const combo_id = parseInt(req.params.combo_id);
 			await jobModel.setComboResult(combo_id, resultReq.result);
 			if (resultReq.summoner) {
-				console.log('Summoner added', resultReq.summoner);
+				console.log("Summoner added", resultReq.summoner);
 				await jobModel.addHit(combo_id, resultReq.summoner);
 			}
 			return res.status(StatusCodes.OK).send();

@@ -33,17 +33,17 @@ export interface Job {
   fails: number;
   progress: JobProgress;
   run_time: number;
-  status: 'Running' | 'Paused' | 'Completed';
+  status: "Running" | "Paused" | "Completed";
 }
 
-export type ComboResult = 'Success' | 'Failed';
+export type ComboResult = "Success" | "Failed";
 
 export interface Combo {
   id: number;
   job_id: number;
   username: string;
   password: string;
-  status: 'Pending' | 'Completed';
+  status: "Pending" | "Completed";
   result: ComboResult;
 }
 

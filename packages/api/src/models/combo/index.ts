@@ -1,9 +1,9 @@
-import { RowDataPacket } from 'mysql2';
-import { Combo, ComboStats } from '../../types';
-import { db } from '../../db';
+import { RowDataPacket } from "mysql2";
+import { Combo, ComboStats } from "../../types";
+import { db } from "../../db";
 
 export const pendingFromJob = async (job_id: number): Promise<Combo[]> => {
-	const query = 'SELECT * FROM combos WHERE job_id = ? AND status = \'Pending\'';
+	const query = "SELECT * FROM combos WHERE job_id = ? AND status = 'Pending'";
 	const [result] = await db.promise().query(query, job_id);
 	const rows = <RowDataPacket[]>result;
 	const combos: Combo[] = rows.map((combo) => {

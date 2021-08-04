@@ -1,7 +1,7 @@
-import moment from 'moment';
-import { OkPacket, RowDataPacket } from 'mysql2';
-import { ComboResult, Job, Summoner } from 'src/types';
-import { db } from '../../db';
+import moment from "moment";
+import { OkPacket, RowDataPacket } from "mysql2";
+import { ComboResult, Job, Summoner } from "../../types";
+import { db } from "../../db";
 
 export const findAll = async (user_id: number): Promise<Job[]> => {
 	const query = `
@@ -48,7 +48,7 @@ WHERE
 };
 
 export const belongsToUser = async (job_id: number, user_id: number): Promise<boolean> => {
-	const query = 'SELECT * FROM jobs WHERE id = ? AND user_id = ?';
+	const query = "SELECT * FROM jobs WHERE id = ? AND user_id = ?";
 	const [rows] = await db.promise().query(query, [job_id, user_id]);
 	const jobs = <any[]>rows;
 	return jobs.length > 0;
@@ -59,13 +59,13 @@ export const setComboResult = async (
 	combo_result: ComboResult
 ): Promise<boolean> => {
 	const query =
-		'UPDATE combos SET status = \'Completed\', result = ? WHERE id = ?';
+		"UPDATE combos SET status = 'Completed', result = ? WHERE id = ?";
 	const [result] = await db.promise().query(query, [combo_result, combo_id]);
 	return (<OkPacket>result).affectedRows > 0;
 };
 
 export const markAsCompleted = async (job_id: number): Promise<boolean> => {
-	const query = 'UPDATE jobs SET status = \'Completed\', end_time = ? WHERE id = ?';
+	const query = "UPDATE jobs SET status = 'Completed', end_time = ? WHERE id = ?";
 	const [result] = await db.promise().query(query, [moment().valueOf(), job_id]);
 	return (<OkPacket>result).affectedRows > 0;
 };
@@ -97,8 +97,8 @@ export const addHit = async (combo_id: number, summoner: Summoner): Promise<numb
 			summoner.refund_credits,
 			summoner.refundable_rp,
 			summoner.refundable_be,
-			summoner.champions.join(','),
-			summoner.skins.join(','),
+			summoner.champions.join(","),
+			summoner.skins.join(","),
 			summoner.banned,
 			summoner.toxic_banned,
 		]);

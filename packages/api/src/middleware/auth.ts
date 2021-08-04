@@ -1,7 +1,7 @@
-import { NextFunction, Request, Response } from 'express';
-import { StatusCodes } from 'http-status-codes';
-import * as jwt from 'jsonwebtoken';
-import { User } from '../types';
+import { NextFunction, Request, Response } from "express";
+import { StatusCodes } from "http-status-codes";
+import * as jwt from "jsonwebtoken";
+import { User } from "../types";
 
 const validateAuthToken = async (req: Request, res: Response, next: NextFunction): Promise<Response<any, Record<string, any>>> => {
 	const auth_header = req.headers.authorization;

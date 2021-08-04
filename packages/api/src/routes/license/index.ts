@@ -1,12 +1,12 @@
-import { Request, Response, Router } from 'express';
-import { StatusCodes } from 'http-status-codes';
-import validateAuthToken from 'src/middleware/auth';
-import * as licenseModel from 'src/models/license';
+import { Request, Response, Router } from "express";
+import { StatusCodes } from "http-status-codes";
+import validateAuthToken from "../../middleware/auth";
+import * as licenseModel from "../../models/license";
 
 const router = Router();
 
 router.post(
-	'/redeem',
+	"/redeem",
 	validateAuthToken,
 	async (req: Request, res: Response) => {
 		const user = req.body.user;
@@ -21,22 +21,22 @@ router.post(
 					} else {
 						return res
 							.status(StatusCodes.INTERNAL_SERVER_ERROR)
-							.json({ error: 'Something went wrong. Please try again.' });
+							.json({ error: "Something went wrong. Please try again." });
 					}
 				} else {
 					return res
 						.status(StatusCodes.NOT_FOUND)
-						.json({ error: 'License key not found' });
+						.json({ error: "License key not found" });
 				}
 			} else {
 				return res
 					.status(StatusCodes.NOT_FOUND)
-					.json({ error: 'License key not found' });
+					.json({ error: "License key not found" });
 			}
 		} else {
 			return res
 				.status(StatusCodes.BAD_REQUEST)
-				.json({ error: 'You already have an active subscription' });
+				.json({ error: "You already have an active subscription" });
 		}
 	}
 );
