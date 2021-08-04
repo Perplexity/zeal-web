@@ -14,6 +14,7 @@ import PauseButton from '../../Buttons/PauseButton';
 import ResumeButton from '../../Buttons/ResumeButton';
 import moment from 'moment';
 import 'moment-duration-format';
+import { GridRowSelectedParams } from '../../../types/material-ui';
 
 const columns = [
   {
@@ -158,7 +159,7 @@ const columns = [
 type Props = {
   loading: boolean;
   jobs: Job[];
-  onRowSelected?: (param: any) => void;
+  onRowSelected?: (param: GridRowSelectedParams) => void;
 };
 
 const JobsTable = ({ loading, jobs, onRowSelected }: Props) => {
