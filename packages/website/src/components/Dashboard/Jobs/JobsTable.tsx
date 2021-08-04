@@ -12,9 +12,12 @@ import CheckIcon from '@material-ui/icons/Check';
 import { Job } from '../../../types';
 import PauseButton from '../../Buttons/PauseButton';
 import ResumeButton from '../../Buttons/ResumeButton';
-import moment from 'moment';
+import * as moment from "moment";
 import 'moment-duration-format';
 import { GridRowSelectedParams } from '../../../types/material-ui';
+import momentDurationFormatSetup from 'moment-duration-format';
+
+momentDurationFormatSetup(moment);
 
 const columns = [
   {
