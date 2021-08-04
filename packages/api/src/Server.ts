@@ -1,14 +1,14 @@
-import cookieParser from 'cookie-parser';
-import morgan from 'morgan';
-import path from 'path';
-import helmet from 'helmet';
+import cookieParser from "cookie-parser";
+import morgan from "morgan";
+import path from "path";
+import helmet from "helmet";
 
-import express, { NextFunction, Request, Response } from 'express';
-import StatusCodes from 'http-status-codes';
-import 'express-async-errors';
+import express, { NextFunction, Request, Response } from "express";
+import StatusCodes from "http-status-codes";
+import "express-async-errors";
 
-import BaseRouter from './routes';
-import logger from '@shared/Logger';
+import BaseRouter from "./routes";
+import logger from "@shared/Logger";
 
 const app = express();
 const { BAD_REQUEST } = StatusCodes;
@@ -20,21 +20,32 @@ const { BAD_REQUEST } = StatusCodes;
  ***********************************************************************************/
 
 app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // Show routes called in console during development
-if (process.env.NODE_ENV === 'development') {
-	app.use(morgan('dev'));
+if (process.env.NODE_ENV === "development") {
+	app.use(morgan("dev"));
 }
 
 // Security
-if (process.env.NODE_ENV === 'production') {
-	app.use(helmet());
+if (process.env.NODE_ENV === "production") {
+	console.log("using that production shit!");
+	app.use(helmet({
+		contentSecurityPolicy: {
+			directives: {
+				defaultSrc: ["'self'"],
+				scriptSrc: ["'self'", "'unsafe-inline'"],
+				styleSrc: ["'self'", "https:", "'unsafe-inline'"],
+				imgSrc: ["'self'", "data:"],
+				fontSrc: ["'self'", "https:", "data:"],
+			}
+		}
+	}));
 }
 
 // Add APIs
-app.use('/api', BaseRouter);
+app.use("/api", BaseRouter);
 
 // Print API errors
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -53,10 +64,11 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
 
 // const viewsDir = path.join(__dirname, 'views');
 // app.set('views', viewsDir);
-const staticDir = path.join(__dirname, 'public');
+const staticDir = process.env.NODE_ENV === "development" ? path.join(__dirname, "public") : path.join(__dirname, "../../website/build");
+console.log("static dir: ", staticDir);
 app.use(express.static(staticDir));
-app.get('*', (req: Request, res: Response) => {
-	res.sendFile('index.html', {root: staticDir});
+app.get("*", (req: Request, res: Response) => {
+	res.sendFile("index.html", { root: staticDir });
 });
 
 // Export express instance

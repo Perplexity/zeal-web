@@ -1,18 +1,18 @@
-import { Request, Response, Router } from 'express';
-import { DDragon } from '../../db/DataDragon';
-import * as fs from 'fs';
-import { StatusCodes } from 'http-status-codes';
+import { Request, Response, Router } from "express";
+import { DDragon } from "../../db/DataDragon";
+import * as fs from "fs";
+import { StatusCodes } from "http-status-codes";
 
 const router = Router();
 
-router.get('/', async (req: Request, res: Response) => {
+router.get("/", async (req: Request, res: Response) => {
 	const dd = new DDragon();
 	const ddVersion = await dd.versions.latest();
-	const champions = fs.existsSync('ddragon/champions.json')
-		? JSON.parse(fs.readFileSync('ddragon/champions.json').toString())
+	const champions = fs.existsSync("ddragon/champions.json")
+		? JSON.parse(fs.readFileSync("ddragon/champions.json").toString())
 		: [];
-	const skins = fs.existsSync('ddragon/skins.json')
-		? JSON.parse(fs.readFileSync('ddragon/skins.json').toString())
+	const skins = fs.existsSync("ddragon/skins.json")
+		? JSON.parse(fs.readFileSync("ddragon/skins.json").toString())
 		: [];
 	return res.status(StatusCodes.OK).json({
 		data_dragon_version: ddVersion,
@@ -21,7 +21,7 @@ router.get('/', async (req: Request, res: Response) => {
 	});
 });
 
-router.put('/', async (req: Request, res: Response) => {
+router.put("/", async (req: Request, res: Response) => {
 	const dd = new DDragon();
 	const ddVersion = await dd.versions.latest();
 	const { data: champions } = await dd.champion.all(ddVersion);
@@ -44,12 +44,12 @@ router.put('/', async (req: Request, res: Response) => {
 			exportSkins.push(champSkin);
 		}
 	}
-	if (!fs.existsSync('ddragon')) {
-		fs.mkdirSync('ddragon');
+	if (!fs.existsSync("ddragon")) {
+		fs.mkdirSync("ddragon");
 	}
-	fs.writeFileSync('ddragon/champions.json', JSON.stringify(exportChamps));
-	fs.writeFileSync('ddragon/skins.json', JSON.stringify(exportSkins));
-	return res.status(StatusCodes.OK).json({ message: 'Updated data.' });
+	fs.writeFileSync("ddragon/champions.json", JSON.stringify(exportChamps));
+	fs.writeFileSync("ddragon/skins.json", JSON.stringify(exportSkins));
+	return res.status(StatusCodes.OK).json({ message: "Updated data." });
 });
 
 export default router;

@@ -1,6 +1,6 @@
-import { RowDataPacket } from 'mysql2';
-import { Summoner } from 'src/types';
-import { db } from '../../db';
+import { RowDataPacket } from "mysql2";
+import { Summoner } from "../../types";
+import { db } from "../../db";
 
 export const fromJob = async (job_id: number): Promise<Summoner[]> => {
 	const query = `
@@ -43,8 +43,8 @@ FROM
 			refund_credits: row.refund_credits,
 			refundable_rp: row.refundable_rp,
 			refundable_be: row.refundable_be,
-			champions: row.champions.split(','),
-			skins: row.skins ? row.skins.split(',') : [],
+			champions: row.champions.split(","),
+			skins: row.skins ? row.skins.split(",") : [],
 			banned: row.banned,
 			toxic_banned: row.toxic_banned,
 		};
