@@ -1,0 +1,3 @@
+config = {
+    "root_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MCwidXNlcm5hbWUiOiJhZG1pbiIsImVtYWlsX2FkZHJlc3MiOiJhZG1pbkB6ZWFsLmNvbSIsImlhdCI6MTYyNTQyNjY1NX0.IndV8Kq07xpsxN9v-j86ZeZavsxlLGmQrto5m7ZIw7Q"
+}
