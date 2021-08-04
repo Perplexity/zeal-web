@@ -7,7 +7,7 @@ type Props = {
 const MinLevelSlider = ({ onChange }: Props) => {
   return (
     <Box>
-      <Typography gutterBottom><strong>Min. Level</strong></Typography>
+      <Typography gutterBottom>Min. Level</Typography>
       <Slider
         defaultValue={30}
         valueLabelDisplay="auto"
