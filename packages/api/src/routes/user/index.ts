@@ -25,7 +25,7 @@ router.get("/me", [validateAuthToken, fetchUserDetails], async (req: Request, re
 });
 
 router.post("/login", async (req: Request, res: Response) => {
-	const ip = <string>req.headers["x-forwarded-for"] || req.socket.remoteAddress;
+	const ip = <string>req.socket.remoteAddress;
 	if (!req.body.username || !req.body.password) {
 		return res.status(StatusCodes.BAD_REQUEST).send();
 	} else {
