@@ -2,7 +2,7 @@ import {
   Box,
   Typography,
 } from '@material-ui/core';
-import { DataGrid, GridRowSelectedParams } from '@material-ui/data-grid';
+import { DataGrid } from '@material-ui/data-grid';
 import {
   LinearProgress,
 } from '@material-ui/core';
@@ -158,7 +158,7 @@ const columns = [
 type Props = {
   loading: boolean;
   jobs: Job[];
-  onRowSelected?: (param: GridRowSelectedParams) => void;
+  onRowSelected?: (param: any) => void;
 };
 
 const JobsTable = ({ loading, jobs, onRowSelected }: Props) => {

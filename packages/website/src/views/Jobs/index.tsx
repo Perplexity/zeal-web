@@ -12,7 +12,6 @@ import {
 } from '../../store/jobsSlice';
 import { useEffect } from 'react';
 import { getJobs, getResults } from '../../api/user';
-import { GridRowSelectedParams } from '@material-ui/data-grid';
 import ResultsTable from '../../components/Dashboard/Jobs/ResultsTable';
 import theme from '../../theme';
 import DownloadIcon from '@material-ui/icons/CloudDownload';
@@ -90,7 +89,7 @@ const JobsView = () => {
     return () => clearInterval(interval);
   }, [dispatch, jobs, loading]);
 
-  const handleJobSelected = (param: GridRowSelectedParams) => {
+  const handleJobSelected = (param: any) => {
     dispatch(setFetchingResults(true));
     getResults(param.data.id).then((summoners) => {
       dispatch(setResults(summoners));
