@@ -79,6 +79,7 @@ export const emailExists = async (email: string): Promise<boolean> => {
 };
 
 export const logLogin = async (userId: number, ipAddress: string): Promise<number> => {
+	console.log(`User ${userId} logged in with IP: ${ipAddress}`)
 	const query =
     "INSERT INTO login_logs (user_id, timestamp, ip_address) VALUES (?, ?, ?)";
 	const [result] = await db
