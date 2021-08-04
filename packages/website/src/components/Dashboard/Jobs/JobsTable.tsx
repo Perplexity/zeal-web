@@ -13,8 +13,7 @@ import PauseButton from '../../Buttons/PauseButton';
 import ResumeButton from '../../Buttons/ResumeButton';
 import moment from "moment";
 import 'moment-duration-format';
-import { GridRowSelectedParams } from '../../../types/material-ui';
-import * as DataGrid from '@material-ui/data-grid';
+import { DataGrid, GridRowSelectedParams } from '@material-ui/data-grid';
 
 const columns = [
   {
@@ -165,7 +164,7 @@ type Props = {
 const JobsTable = ({ loading, jobs, onRowSelected }: Props) => {
   return (
     <div style={{ height: 500 }}>
-      <DataGrid.DataGrid columns={columns} rows={jobs} loading={loading} onRowSelected={onRowSelected}/>
+      <DataGrid columns={columns} rows={jobs} loading={loading} onRowSelected={onRowSelected}/>
     </div>
   );
 };
