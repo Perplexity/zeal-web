@@ -32,6 +32,7 @@ import {
 import { selectUser } from '../../store/userSlice';
 import NoLicense from '../../components/Dashboard/NoLicense';
 import CreateJob from '../../components/Dashboard/Jobs/CreateJob';
+import { GridRowSelectedParams } from '../../types/material-ui';
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -89,7 +90,7 @@ const JobsView = () => {
     return () => clearInterval(interval);
   }, [dispatch, jobs, loading]);
 
-  const handleJobSelected = (param: any) => {
+  const handleJobSelected = (param: GridRowSelectedParams) => {
     dispatch(setFetchingResults(true));
     getResults(param.data.id).then((summoners) => {
       dispatch(setResults(summoners));
