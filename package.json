@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "build-local": "lerna bootstrap && cd packages/website && npm run build && cd ../api && npm run build",
-    "build": "cd packages/website && npm ci && npm run build && cd ../api && npm ci && npm run build"
+    "build": "npm i lerna --g && lerna bootstrap && cd packages/website && npm run build && cd ../api && npm run build"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.29.0",
