@@ -1,1 +1,1 @@
-web: lerna run start --scope=api --parallel
+web: node -r module-alias/register packages/api/dist --env=production
