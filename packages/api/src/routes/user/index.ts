@@ -6,12 +6,13 @@ import * as userModel from "../../models/user";
 import child_process from "child_process";
 import validateAuthToken from "../../middleware/auth";
 import { fetchUserDetails } from "../../middleware/user";
+import path from "path";
 
 const router = Router();
 
 router.get("/test", async (req: Request, res: Response) => {
 	const process = child_process.spawn("python", [
-		"C:\\python-apps\\zeal-checker\\main.py",
+		path.join(__dirname, "../../../../checker/main.py"),
 		"--job=1",
 		"--threads=1",
 	]);
