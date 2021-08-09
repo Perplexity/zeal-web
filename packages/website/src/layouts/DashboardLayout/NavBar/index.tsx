@@ -12,7 +12,7 @@ import {
 	CircularProgress,
 	Theme,
 } from "@material-ui/core";
-import { BarChart as BarChartIcon, LogOut, Briefcase } from "react-feather";
+import { BarChart as BarChartIcon, LogOut, Briefcase, HelpCircle } from "react-feather";
 import NavItem from "./NavItem";
 import { purple } from "@material-ui/core/colors";
 import { useCookies } from "react-cookie";
@@ -37,6 +37,11 @@ const items = [
 		href: "/dashboard/jobs",
 		icon: Briefcase,
 		title: "Jobs",
+	},
+	{
+		href: "/dashboard/support",
+		icon: HelpCircle,
+		title: "Support",
 	},
 ];
 
