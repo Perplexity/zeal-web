@@ -7,7 +7,6 @@ import {
   FormControlLabel,
   Grid,
   makeStyles,
-  TextField,
   Theme,
 } from '@material-ui/core';
 import { useAppDispatch, useAppSelector } from '../../../app/hooks';
@@ -18,8 +17,9 @@ import ThreadsSlider from './ThreadsSlider';
 import CrossIcon from '@material-ui/icons/Clear';
 import CheckIcon from '@material-ui/icons/CheckSharp';
 import Selector from '../../Selector';
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import theme from '../../../theme';
+import Uploader from '../Uploader';
 
 const useStyles = makeStyles((theme: Theme) => ({
   createButton: {
@@ -45,17 +45,21 @@ const CreateJob = () => {
   const { user } = userState;
   const [region, setRegion] = useState('EUW');
   const [mode, setMode] = useState('Check');
+  const [combosFile, setCombosFile] = useState<File>(null);
   const [minLevel, setMinLevel] = useState(30);
   const [checkBanned, setCheckBanned] = useState(false);
   const [threads, setThreads] = useState(1);
   const [submitting, setSubmitting] = useState(false);
+
+  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (files.length) {
+      setCombosFile(files[0]);
+    }
+  };
+
   return (
     <Box>
-      <Grid container spacing={3} style={{ paddingBottom: theme.spacing(2) }}>
-        <Grid item xs={12}>
-          {/* TODO: Add upload file */}
-        </Grid>
-      </Grid>
       <Grid container spacing={3}>
         <Grid item xs={6}>
           <Selector
@@ -82,6 +86,16 @@ const CreateJob = () => {
             value={mode}
             options={['Crack', 'Check']}
             onChange={(e) => setMode(e.target.value)}
+          />
+        </Grid>
+      </Grid>
+      <Grid container spacing={3} style={{ paddingBottom: theme.spacing(2) }}>
+        <Grid item xs={12}>
+          <Uploader
+            label="Combos"
+            file={combosFile}
+            onChange={handleFileChange}
+            onClear={() => setCombosFile(null)}
           />
         </Grid>
       </Grid>
