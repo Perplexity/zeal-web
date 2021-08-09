@@ -1,11 +1,11 @@
-import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import userReducer from '../store/userSlice';
-import jobsReducer from '../store/jobsSlice';
+import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
+import userReducer from "../store/userSlice";
+import jobsReducer from "../store/jobsSlice";
 export const store = configureStore({
-  reducer: {
-    userReducer,
-    jobsReducer
-  },
+	reducer: {
+		userReducer,
+		jobsReducer
+	},
 });
 
 export type AppDispatch = typeof store.dispatch;
