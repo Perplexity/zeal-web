@@ -31,11 +31,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 type Props = {
-  label: string;
-  file?: File;
-  onChange?: ChangeEventHandler<HTMLInputElement>;
-  onClear?: () => void;
-  loading?: boolean;
+	label: string;
+	file?: File;
+	onChange?: ChangeEventHandler<HTMLInputElement>;
+	onClear?: () => void;
+	loading?: boolean;
 };
 
 const Uploader = ({ label, file, onChange, onClear, loading }: Props): JSX.Element => {
@@ -65,7 +65,7 @@ const Uploader = ({ label, file, onChange, onClear, loading }: Props): JSX.Eleme
 					value={file ? file.name : ""}
 					readOnly
 				/>
-				<IconButton className={classes.iconButton} onClick={onClear}>
+				<IconButton className={classes.iconButton} onClick={onClear} disabled={loading}>
 					<ClearIcon />
 				</IconButton>
 			</Paper>
