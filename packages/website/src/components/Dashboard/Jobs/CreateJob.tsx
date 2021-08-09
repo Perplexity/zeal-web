@@ -70,7 +70,7 @@ const CreateJob = (): JSX.Element => {
 		});
 		if (combos.length > 0) {
 			if (combos.length > user.license.combo_limit) {
-				setCombosErrorMessage(<>Cannot load <strong><NumberFormat value={combos.length} thousandSeparator={true} displayType="text" /></strong> combos, your limit is <strong><NumberFormat value={user.license.combo_limit} thousandSeparator={true} displayType="text" /></strong>.</>);
+				setCombosErrorMessage(<>Cannot load <strong><NumberFormat value={combos.length} thousandSeparator={true} displayType="text" /></strong> combos, your limit is <strong><NumberFormat value={user.license.combo_limit} thousandSeparator={true} displayType="text" /></strong> per job.</>);
 			} else {
 				setCombosSuccessMessage(<>Successfully loaded <strong>{combos.length}</strong> combos!</>);
 			}
