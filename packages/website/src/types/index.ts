@@ -16,6 +16,11 @@ export interface License {
   combo_limit: number;
 }
 
+export interface BasicCombo {
+  username: string;
+  password: string;
+}
+
 interface JobProgress {
   current: number;
   total: number;
@@ -32,7 +37,7 @@ export interface Job {
   fails: number;
   progress: JobProgress;
   run_time: number;
-  status: 'Running' | 'Paused' | 'Completed';
+  status: "Running" | "Paused" | "Completed";
 }
 
 export interface ComboStats {
