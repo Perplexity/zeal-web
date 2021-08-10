@@ -10,4 +10,4 @@ jobs:
           node-version: '14'
       - run: npm install
       - run: cd packages/api
-      - run: eslint src/**/*.ts
+      - run: npx eslint src/**/*.ts
