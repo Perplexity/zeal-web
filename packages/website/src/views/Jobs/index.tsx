@@ -73,6 +73,7 @@ const JobsView = (): JSX.Element => {
 	const jobsState = useAppSelector(selectJobs);
 	const { user } = userState;
 	const { loading, jobs, fetching_results, results, creating_job } = jobsState;
+	console.log('nothing');
 	useEffect(() => {
 		if (loading) {
 			getJobs().then((jobs) => {
