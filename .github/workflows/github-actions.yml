@@ -9,5 +9,5 @@ jobs:
         with:
           node-version: '14'
       - run: npm install
-      - run: cd packages/api
+        working-directory: ./packages/api
       - run: npm run lint
