@@ -12,6 +12,9 @@ jobs:
           node-version: "14"
       - name: Install base dependencies
         run: npm install
+      - name: Install API dependencies
+        working-directory: ./packages/api
+        run: npm install
       - name: Run ESLint
         working-directory: ./packages/api
         run: npm run lint
