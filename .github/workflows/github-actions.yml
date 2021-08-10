@@ -9,9 +9,9 @@ jobs:
       - name: Setup node
       - uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: "14"
       - name: Install base dependencies
-      - run: npm install
+        run: npm install
       - name: Checkout repository code
         working-directory: ./packages/api
         run: npm run lint
