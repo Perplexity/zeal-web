@@ -14,4 +14,4 @@ jobs:
         run: npm install
       - name: Run ESLint
         working-directory: ./packages/api
-        run: npm run lint
+        run: npx eslint 'src/**/*.ts'
