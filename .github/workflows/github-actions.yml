@@ -1,7 +1,7 @@
 name: Zeal Github Actions
 on: [push]
 jobs:
-  perform-linting:
+  setup-environment:
     runs-on: windows-latest
     steps:
       - name: Checkout repository code
@@ -10,15 +10,13 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: "14"
+  perform-linting:
+    runs-on: windows-latest
+    needs: [setup-environment]
+    steps:
       - name: Install base dependencies
         run: npm install
       - name: Bootstrap
         run: lerna bootstrap
       - name: Run ESLint
         run: lerna run lint
-      # - name: Install API dependencies
-      #   working-directory: ./packages/api
-      #   run: npm install
-      # - name: Run ESLint
-      #   working-directory: ./packages/api
-      #   run: npm run lint
