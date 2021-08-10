@@ -16,9 +16,3 @@ jobs:
         run: lerna bootstrap
       - name: Run ESLint
         run: lerna run lint
-      # - name: Install API dependencies
-      #   working-directory: ./packages/api
-      #   run: npm install
-      # - name: Run ESLint
-      #   working-directory: ./packages/api
-      #   run: npm run lint
