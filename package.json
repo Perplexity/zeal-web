@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "build-local": "lerna bootstrap && cd packages/website && npm run build && cd ../api && npm run build",
-    "build": "lerna bootstrap && lerna build"
+    "build": "lerna bootstrap && lerna run build"
   },
   "devDependencies": {
     "lerna": "^4.0.0"
