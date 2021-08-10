@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "build": "npx ts-node build.ts",
-    "lint": "npx eslint . --ext .ts",
+    "lint": "npx eslint ./src --ext .ts",
     "start": "node -r module-alias/register ./dist --env=production",
     "dev": "nodemon",
     "test": "nodemon --config ./spec/nodemon.json"
