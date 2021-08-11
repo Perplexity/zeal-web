@@ -5,8 +5,8 @@ on:
       - develop
   workflow_dispatch:
 jobs:
-  perform-linting:
-    runs-on: windows-latest
+  CI:
+    runs-on: macos-latest
     steps:
       - name: Checkout repository code
         uses: actions/checkout@v2
@@ -20,3 +20,6 @@ jobs:
         run: lerna bootstrap
       - name: Run ESLint
         run: lerna run lint
+      - name: Run Tests
+        run: lerna run test
+
