@@ -9,7 +9,6 @@ afterAll(() => {
 
 describe("Logging in", () => {
 	test("With a valid login should return 200", async () => {
-		console.log("FUCCKCKCKCKC", bcrypt.hashSync("test", 10));
 		const response = await request(app).post("/api/user/login").send({
 			username: "test",
 			password: "test"
