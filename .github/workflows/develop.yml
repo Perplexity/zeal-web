@@ -1,9 +1,9 @@
 name: Develop
 on:
   push:
-  workflow_dispatch:
     branches:
       - develop
+  workflow_dispatch:
 jobs:
   perform-linting:
     runs-on: windows-latest
