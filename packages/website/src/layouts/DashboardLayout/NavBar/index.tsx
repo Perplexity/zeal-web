@@ -68,7 +68,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 }));
 
 type Props = {
-	onMobileClose: any;
+	onMobileClose: () => void;
 	openMobile: boolean;
 }
 const NavBar = ({ onMobileClose, openMobile }: Props): JSX.Element => {
