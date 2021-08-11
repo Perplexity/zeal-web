@@ -28,14 +28,6 @@
     ]
   },
   "dependencies": {
-    "@types/jest": "^24.9.1",
-    "@types/node": "^12.20.11",
-    "@types/react": "^16.14.5",
-    "@types/react-dom": "^16.9.12",
-    "@types/react-helmet": "^6.1.1",
-    "@types/react-redux": "^7.1.16",
-    "@types/react-router-dom": "^5.1.7",
-    "@types/moment-duration-format": "^2.2.2",
     "@material-ui/core": "4.11.4",
     "@material-ui/data-grid": "4.0.0-alpha.33",
     "@material-ui/icons": "^4.11.2",
@@ -64,6 +56,14 @@
     "react-scripts": "4.0.3"
   },
   "devDependencies": {
+    "@types/jest": "^24.9.1",
+    "@types/moment-duration-format": "^2.2.2",
+    "@types/node": "^12.20.11",
+    "@types/react": "^16.14.5",
+    "@types/react-dom": "^16.9.12",
+    "@types/react-helmet": "^6.1.1",
+    "@types/react-redux": "^7.1.16",
+    "@types/react-router-dom": "^5.1.7",
     "eslint": "^7.32.0",
     "eslint-plugin-react": "^7.24.0",
     "typescript": "^4.1.5"
