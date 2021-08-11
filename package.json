@@ -2,7 +2,7 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "build": "lerna bootstrap && NODE_ENV=BUILD_ENV lerna run build"
+    "build": "NODE_ENV=DEPENDENCY_ENV lerna bootstrap && NODE_ENV=BUILD_ENV lerna run build"
   },
   "devDependencies": {
     "lerna": "^4.0.0"
