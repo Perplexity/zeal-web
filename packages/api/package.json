@@ -6,7 +6,7 @@
     "lint": "eslint ./src --ext .ts",
     "start": "node -r module-alias/register ./dist --env=production",
     "dev": "nodemon",
-    "test": "nodemon --config ./spec/nodemon.json"
+    "test": "jest"
   },
   "nodemonConfig": {
     "exec": "ts-node -r tsconfig-paths/register ./src",
@@ -36,7 +36,6 @@
     "fs-extra": "^9.1.0",
     "helmet": "^4.5.0",
     "http-status-codes": "^2.1.4",
-    "jasmine": "^3.7.0",
     "jet-logger": "^1.0.4",
     "jsonfile": "^6.1.0",
     "jsonwebtoken": "^8.5.1",
@@ -49,6 +48,9 @@
     "tsconfig-paths": "^3.9.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "@babel/preset-typescript": "^7.15.0",
     "@types/bcrypt": "^5.0.0",
     "@types/bull": "^3.15.1",
     "@types/command-line-args": "^5.0.0",
@@ -57,6 +59,7 @@
     "@types/find": "^0.2.1",
     "@types/fs-extra": "^9.0.11",
     "@types/jasmine": "^3.6.10",
+    "@types/jest": "^27.0.0",
     "@types/jsonfile": "^6.0.0",
     "@types/jsonwebtoken": "^8.5.2",
     "@types/morgan": "^1.9.2",
@@ -64,8 +67,10 @@
     "@types/supertest": "^2.0.11",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
+    "babel-jest": "^27.0.6",
     "eslint": "^7.32.0",
     "eslint-plugin-react": "^7.24.0",
+    "jest": "^27.0.6",
     "ts-node": "^9.1.1",
     "typescript": "^4.2.4"
   },
