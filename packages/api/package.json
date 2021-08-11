@@ -4,7 +4,7 @@
   "scripts": {
     "build": "ts-node build.ts",
     "lint": "eslint ./src --ext .ts",
-    "start": "node -r module-alias/register ./dist --env=production",
+    "start": "node -r module-alias/register ./dist --env=prod",
     "dev": "nodemon",
     "test": "jest"
   },

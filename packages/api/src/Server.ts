@@ -29,8 +29,7 @@ if (process.env.NODE_ENV === "development") {
 }
 
 // Security
-if (process.env.NODE_ENV === "production") {
-	console.log("using that production shit!");
+if (process.env.NODE_ENV === "prod") {
 	app.use(helmet({
 		contentSecurityPolicy: {
 			directives: {
