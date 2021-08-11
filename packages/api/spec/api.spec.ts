@@ -1,19 +1,19 @@
 import app from "../src/App";
 import request from "supertest";
 import { db } from "../src/db";
-import * as bcrypt from "bcrypt";
 
 afterAll(() => {
 	db.end();
 });
 
-describe("Logging in", () => {
-	test("With a valid login should return 200", async () => {
+describe("/api/user/login", () => {
+	test("With a valid login should return 200 with a token", async () => {
 		const response = await request(app).post("/api/user/login").send({
 			username: "test",
 			password: "test"
 		});
 		expect(response.statusCode).toEqual(200);
+		expect(response.body.token).toBeTruthy();
 	});
 
 	test("With an invalid login should return 401", async () => {
