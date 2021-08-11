@@ -207,7 +207,7 @@ const CreateJob = (): JSX.Element => {
 								color="primary"
 								className={classes.createButton}
 								onClick={() => setSubmitting(true)}
-								disabled={combosLoading || combosErrorMessage !== null}
+								disabled={combosLoading || combosErrorMessage !== null || combosFile === null}
 							>
 								Create Job
 							</Button>
