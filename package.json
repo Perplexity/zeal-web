@@ -2,11 +2,9 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "build-local": "lerna bootstrap && cd packages/website && npm run build && cd ../api && npm run build",
-    "build": "lerna bootstrap && lerna run build"
+    "build": "cd packages/api && npm install && npm run build && cd ../api && npm install && npm run build"
   },
   "devDependencies": {
-    "lerna": "^4.0.0",
-    "typescript": "^4.3.5"
+    "lerna": "^4.0.0"
   }
 }
