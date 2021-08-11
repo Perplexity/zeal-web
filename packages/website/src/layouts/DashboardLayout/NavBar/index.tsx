@@ -68,10 +68,9 @@ const useStyles = makeStyles((theme: Theme) => ({
 }));
 
 type Props = {
-	onMobileClose: () => void;
+	onMobileClose: any;
 	openMobile: boolean;
 }
-
 const NavBar = ({ onMobileClose, openMobile }: Props): JSX.Element => {
 	const classes = useStyles();
 	const dispatch = useAppDispatch();
@@ -88,22 +87,19 @@ const NavBar = ({ onMobileClose, openMobile }: Props): JSX.Element => {
 	};
 
 	useEffect(() => {
-		if (openMobile && onMobileClose) {
-			onMobileClose();
-		}
 		if (users_loading) {
 			getUser().then((myUser) => {
 				dispatch(setUser(myUser));
 				dispatch(setUsersLoading(false));
 			});
 		}
-		if(jobs_loading) {
+		if (jobs_loading) {
 			getJobs().then((jobs) => {
 				dispatch(setJobs(jobs));
 				dispatch(setJobsLoading(false));
 			});
 		}
-	}, [dispatch, jobs_loading, onMobileClose, openMobile, users_loading]);
+	}, [dispatch, jobs_loading, users_loading]);
 	const content = (
 		<Box height="100%" display="flex" flexDirection="column">
 			<Box alignItems="center" display="flex" flexDirection="column" p={2}>
@@ -121,7 +117,7 @@ const NavBar = ({ onMobileClose, openMobile }: Props): JSX.Element => {
 							variant="contained"
 							onClick={() => doLogout()}
 						>
-              Sign out
+							Sign out
 						</Button>
 					</>
 				)}
