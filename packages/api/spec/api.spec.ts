@@ -1,7 +1,6 @@
 import app from "../src/App";
 import request from "supertest";
 import { db } from "../src/db";
-import * as bcrypt from "bcrypt";
 
 afterAll(() => {
 	db.end();
