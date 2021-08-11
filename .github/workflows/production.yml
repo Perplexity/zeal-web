@@ -1,9 +1,9 @@
 name: Production
 on:
   push:
-  workflow_dispatch:
     branches:
       - master
+  workflow_dispatch:
 jobs:
   deploy:
     runs-on: ubuntu-latest
