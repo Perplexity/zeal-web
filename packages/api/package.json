@@ -19,8 +19,7 @@
     ]
   },
   "eslintIgnore": [
-    "src/public/",
-    "build.ts"
+    "src/public/"
   ],
   "dependencies": {
     "axios": "^0.21.1",
