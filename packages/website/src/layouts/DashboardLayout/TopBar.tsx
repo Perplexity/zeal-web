@@ -12,7 +12,7 @@ const useStyles = makeStyles(() => ({
 }));
 type Props = {
   className?: string;
-  onMobileNavOpen: any;
+  onMobileNavOpen: () => void;
 };
 const TopBar = ({ className, onMobileNavOpen, ...rest }: Props): JSX.Element => {
 	const classes = useStyles();
