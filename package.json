@@ -2,7 +2,7 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "build": "cd packages/api && npm install && npm run build && cd ../api && npm install && npm run build"
+    "build": "npm i ts-node typescript -g && cd packages/api && npm install && npm run build && cd ../api && npm install && npm run build"
   },
   "devDependencies": {
     "lerna": "^4.0.0"
