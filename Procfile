@@ -1,1 +1,1 @@
-web: cd packages/api && node -r module-alias/register ./dist --env=production
+web: cd packages/api && node -r module-alias/register ./dist --env=prod
