@@ -34,5 +34,5 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: ${{secrets.HEROKU_APP_NAME_UAT}}
           heroku_email: ${{secrets.HEROKU_EMAIL}}
-          web: cd packages/api && node -r module-alias/register ./dist --env=uat
+          procfile: "web: cd packages/api && node -r module-alias/register ./dist --env=uat"
 
