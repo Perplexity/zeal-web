@@ -24,7 +24,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // Show routes called in console during development
-if (process.env.NODE_ENV === "development") {
+if (process.env.NODE_ENV === "uat") {
 	app.use(morgan("dev"));
 }
 
@@ -63,7 +63,7 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
 
 // const viewsDir = path.join(__dirname, 'views');
 // app.set('views', viewsDir);
-const staticDir = process.env.NODE_ENV === "development" ? path.join(__dirname, "public") : path.join(__dirname, "../../website/build");
+const staticDir = process.env.NODE_ENV === "uat" ? path.join(__dirname, "public") : path.join(__dirname, "../../website/build");
 console.log("static dir: ", staticDir);
 app.use(express.static(staticDir));
 app.get("*", (req: Request, res: Response) => {

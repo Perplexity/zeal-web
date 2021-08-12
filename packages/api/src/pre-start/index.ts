@@ -15,7 +15,7 @@ import commandLineArgs from "command-line-args";
 		{
 			name: "env",
 			alias: "e",
-			defaultValue: "development",
+			defaultValue: "uat",
 			type: String,
 		},
 	]);
