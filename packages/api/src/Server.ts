@@ -24,7 +24,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // Show routes called in console during development
-if (process.env.NODE_ENV === "uat") {
+if (process.env.NODE_ENV === "uat" || process.env.NODE_ENV === "dev") {
 	app.use(morgan("dev"));
 }
 
