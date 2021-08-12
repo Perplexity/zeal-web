@@ -1,1 +1,0 @@
-web: cd packages/api && node -r module-alias/register ./dist --env=prod

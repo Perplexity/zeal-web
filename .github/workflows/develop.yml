@@ -22,4 +22,17 @@ jobs:
         run: lerna run lint
       - name: Run Tests
         run: lerna run test
+  Deploy:
+    runs-on: ubuntu-latest
+    needs: CI
+    steps:
+      - name: Checkout repo code
+        uses: actions/checkout@v2
+      - name: Deploy to Heroku (UAT)
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: ${{secrets.HEROKU_APP_NAME_UAT}}
+          heroku_email: ${{secrets.HEROKU_EMAIL}}
+          procfile: "web: cd packages/api && node -r module-alias/register ./dist --env=uat"
 
