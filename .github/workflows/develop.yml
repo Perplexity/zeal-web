@@ -8,7 +8,7 @@ jobs:
   CI:
     runs-on: windows-latest
     steps:
-      - name: Checkout repository code
+      - name: Checkout repo code
         uses: actions/checkout@v2
       - name: Setup node
         uses: actions/setup-node@v2
@@ -35,4 +35,13 @@ jobs:
           heroku_app_name: ${{secrets.HEROKU_APP_NAME_UAT}}
           heroku_email: ${{secrets.HEROKU_EMAIL}}
           procfile: "web: cd packages/api && node -r module-alias/register ./dist --env=uat"
+  Cypress:
+    runs-on: windows-latest
+    needs: Deploy
+    steps:
+      - name: Checkout repo code
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        working-directory: packages/cypress-tests
+        run: npm install && npm run test:uat
 
