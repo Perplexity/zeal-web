@@ -33,6 +33,6 @@
             "error",
             "always"
         ],
-        "mocha/no-mocha-arrows": false,
+        "mocha/no-mocha-arrows": 0
     }
 }
