@@ -130,7 +130,7 @@ const LoginView = (): JSX.Element => {
 									color="primary"
 									className={classes.submit}
 								>
-                  Sign In - {process.env.NODE_ENV} || {process.env.REACT_APP_TEST_URL}
+                  Sign In
 								</Button>
 								{error && (
 									<Alert className={classes.error} severity="error">
