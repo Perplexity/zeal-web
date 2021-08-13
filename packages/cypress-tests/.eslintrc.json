@@ -33,6 +33,7 @@
             "error",
             "always"
         ],
+        "@typescript-eslint/explicit-module-boundary-types": 0,
         "mocha/no-mocha-arrows": 0
     }
 }
