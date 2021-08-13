@@ -1,5 +1,6 @@
 {
   "packages": [
+    "packages/cypress-tests",
     "packages/api",
     "packages/website"
   ],
