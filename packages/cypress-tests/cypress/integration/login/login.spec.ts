@@ -21,7 +21,7 @@ context("Zeal login page", () => {
 		});
 	});
 
-	describe.only("When submitting an invalid login", () => {
+	describe("When submitting an invalid login", () => {
 		it("Should display an error", () => {
 			attemptLogin("test", "wrongpassword");
 			cy.get(".MuiAlert-message").should("contain.text", "Invalid username/password");
