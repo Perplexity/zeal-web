@@ -17,7 +17,7 @@ jobs:
       - name: Install base dependencies
         run: npm install
       - name: Bootstrap
-        run: lerna bootstrap --ignore cypress-tests # so that we don't install cypress-tests dependencies
+        run: lerna bootstrap
       - name: Run ESLint
         run: lerna run lint
       - name: Run Tests
