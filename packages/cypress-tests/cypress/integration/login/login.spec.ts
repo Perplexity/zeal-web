@@ -1,6 +1,5 @@
 context("Zeal login page", () => {
 	beforeEach(() => {
-		cy.setCookie("x-cypress-test", "true");
 		cy.visit("/");
 	});
 
