@@ -124,6 +124,7 @@ const LoginView = (): JSX.Element => {
 						) : (
 							<Grid container justify="center">
 								<Button
+									id="sign-in"
 									type="submit"
 									fullWidth
 									variant="contained"
