@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint ./cypress --ext .ts",
-    "test:local": "npm run test:uat -- --config baseUrl=http://localhost:3000",
+    "test:local": "npm run test:uat -- --config baseUrl=http://localhost:3000 video=true",
     "open:local": "npm run open:uat -- --config baseUrl=http://localhost:3000",
     "test:uat": "cypress run --config-file config/uat.cypress.json",
     "open:uat": "cypress open --config-file config/uat.cypress.json"

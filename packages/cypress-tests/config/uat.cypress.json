@@ -2,7 +2,6 @@
   "projectId": "UAT",
   "baseUrl": "https://uat.zeal-checker.app",
   "userAgent": "Zeal-Cypress-Client",
-  "video": true,
   "chromeWebSecurity": false,
   "defaultCommandTimeout": 15000,
   "requestTimeout": 15000,
