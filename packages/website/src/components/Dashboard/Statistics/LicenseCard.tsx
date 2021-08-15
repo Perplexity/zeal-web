@@ -47,7 +47,7 @@ const LicenseCard = (): JSX.Element => {
 	return loading ? (
 		<CircularProgress />
 	) : (
-		<Card className={classes.root}>
+		<Card id="license-card" className={classes.root}>
 			<CardContent>
 				<Grid container justify="space-between" spacing={3}>
 					<Grid item>
