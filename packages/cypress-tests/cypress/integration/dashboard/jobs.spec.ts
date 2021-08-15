@@ -1,7 +1,7 @@
 import { authenticateUser } from "../../support/api/authenticate-user";
 import * as validUser from "../../fixtures/valid-user.json";
 import * as userWithLicense from "../../fixtures/user-with-license.json";
-import { noLicenseBoxShouldExist } from "../../support/assertions/dashboard/no-license";
+import { noLicensePromptShouldExist } from "../../support/assertions/dashboard/no-license";
 
 context("Jobs page", () => {
 	beforeEach(() => {
@@ -28,7 +28,7 @@ context("Jobs page", () => {
 		describe("When clicking on new job", () => {
 			it("Should prompt the user to purchase/redeem a license", () => {
 				cy.get("#new-job").click();
-				noLicenseBoxShouldExist();
+				noLicensePromptShouldExist();
 			});
 		});
 	});
