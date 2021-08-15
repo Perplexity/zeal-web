@@ -8,5 +8,6 @@
   "viewportWidth": 1920,
   "viewportHeight": 1080,
   "scrollBehavior": "center",
-  "integrationFolder": "cypress/integration"
+  "integrationFolder": "cypress/integration",
+  "fixturesFolder": "cypress/fixtures"
 }
