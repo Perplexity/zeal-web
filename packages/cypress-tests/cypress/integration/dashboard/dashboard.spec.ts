@@ -1,7 +1,7 @@
 import { authenticateUser } from "../../support/api/authenticate-user";
 import * as validUser from "../../fixtures/valid-user.json";
 import * as userWithLicense from "../../fixtures/user-with-license.json";
-import { noLicenseBoxShouldExist } from "../../support/assertions/dashboard/no-license";
+import { noLicensePromptShouldExist } from "../../support/assertions/dashboard/no-license";
 
 const licenseCard = () => cy.get("#license-card");
 
@@ -31,7 +31,7 @@ context("Zeal dashboard", () => {
 		});
 		describe("When the dashboard has been loaded", () => {
 			it("Should prompt the user to purchase/redeem a license", () => {
-				noLicenseBoxShouldExist();
+				noLicensePromptShouldExist();
 			});
 		});
 	});
