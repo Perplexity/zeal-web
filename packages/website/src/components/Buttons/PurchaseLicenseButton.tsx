@@ -13,6 +13,7 @@ const PurchaseLicenseButton = (): JSX.Element => {
 	const classes = useStyles();
 	return (
 		<Button
+			id="purchase-license"
 			startIcon={<PurchaseIcon />}
 			variant="contained"
 			color="primary"
