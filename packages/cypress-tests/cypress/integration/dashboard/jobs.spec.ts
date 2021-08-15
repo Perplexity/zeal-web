@@ -3,24 +3,20 @@ import * as validUser from "../../fixtures/valid-user.json";
 import * as userWithLicense from "../../fixtures/user-with-license.json";
 import { noLicenseBoxShouldExist } from "../../support/assertions/dashboard/no-license";
 
-const licenseCard = () => cy.get("#license-card");
-
-context("Zeal dashboard", () => {
+context("Jobs page", () => {
 	beforeEach(() => {
 		authenticateUser(validUser.username, validUser.password);
-		cy.visit("/dashboard/home");
+		cy.visit("/dashboard/jobs");
 	});
 
 	context("User with valid license", () => {
 		beforeEach(() => {
 			cy.intercept("GET", "**/user/me", { body: userWithLicense });
 		});
-		describe("When the dashboard has been loaded", () => {
-			it("Should display their license information", () => {
-				licenseCard().should("contain.text", `Tier: ${userWithLicense.license.name}`);
-				licenseCard().should("contain.text", `Job Limit: ${userWithLicense.license.job_limit}`);
-				licenseCard().should("contain.text", `Thread Limit: ${userWithLicense.license.thread_limit}`);
-				licenseCard().should("contain.text", `Combo Limit: ${Number(userWithLicense.license.combo_limit).toLocaleString()}`);
+		describe("When clicking on new job", () => {
+			it("Should show the form to create a job", () => {
+				cy.get("#new-job").click();
+				cy.get("#create-job").should("be.visible").should("be.disabled");
 			});
 		});
 	});
@@ -29,8 +25,9 @@ context("Zeal dashboard", () => {
 		beforeEach(() => {
 			cy.intercept("GET", "**/user/me", { fixture: "user-without-license.json" });
 		});
-		describe("When the dashboard has been loaded", () => {
+		describe("When clicking on new job", () => {
 			it("Should prompt the user to purchase/redeem a license", () => {
+				cy.get("#new-job").click();
 				noLicenseBoxShouldExist();
 			});
 		});
