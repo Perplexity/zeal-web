@@ -202,6 +202,7 @@ const CreateJob = (): JSX.Element => {
 						</Grid>
 						<Grid item xs={6}>
 							<Button
+								id="create-job"
 								startIcon={<CheckIcon />}
 								variant="contained"
 								color="primary"
