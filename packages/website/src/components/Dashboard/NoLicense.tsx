@@ -39,7 +39,7 @@ const NoLicense = (): JSX.Element => {
 		}
 	};
 	return (
-		<Box>
+		<Box id="no-license-container">
 			<Grid container justify="center" spacing={3}>
 				<Grid item xs={12}>
 					<Typography align="center" variant="subtitle1" color="textSecondary">
