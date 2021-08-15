@@ -2,6 +2,8 @@ import { authenticateUser } from "../../support/api/authenticate-user";
 import * as validUser from "../../fixtures/valid-user.json";
 import * as userWithLicense from "../../fixtures/user-with-license.json";
 
+const licenseCard = () => cy.get("#license-card");
+
 context("Zeal dashboard", () => {
 	beforeEach(() => {
 		authenticateUser(validUser.username, validUser.password);
@@ -14,7 +16,6 @@ context("Zeal dashboard", () => {
 		});
 		describe("When the dashboard has been loaded", () => {
 			it("Should display their license information", () => {
-				const licenseCard = () => cy.get("#license-card");
 				licenseCard().should("contain.text", `Tier: ${userWithLicense.license.name}`);
 				licenseCard().should("contain.text", `Job Limit: ${userWithLicense.license.job_limit}`);
 				licenseCard().should("contain.text", `Thread Limit: ${userWithLicense.license.thread_limit}`);
@@ -29,7 +30,6 @@ context("Zeal dashboard", () => {
 		});
 		describe("When the dashboard has been loaded", () => {
 			it("Should prompt the user to purchase/redeem a license", () => {
-				const licenseCard = () => cy.get("#license-card");
 				licenseCard().should("contain.text", "You do not currently have an active license.");
 				cy.get("#purchase-license").should("be.visible");
 				cy.get("#redeem-license").should("be.visible");
