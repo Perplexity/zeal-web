@@ -17,6 +17,7 @@ const RedeemLicenseButton = ({onClick}: Props): JSX.Element => {
 	const classes = useStyles();
 	return (
 		<Button
+			id="redeem-license"
 			startIcon={<PurchaseIcon />}
 			variant="contained"
 			color="primary"
