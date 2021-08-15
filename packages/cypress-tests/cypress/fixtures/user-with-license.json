@@ -1,0 +1,20 @@
+{
+  "id": 2,
+  "username": "test",
+  "email_address": "test@zeal-checker.app",
+  "iat": 1628891958,
+  "license": {
+    "name": "Challenger",
+    "key": "TEST_KEY",
+    "date_redeemed": 1629024265422,
+    "date_expires": 2631702265422,
+    "job_limit": 3,
+    "thread_limit": 50,
+    "combo_limit": 150000
+  },
+  "combo_stats": {
+    "failed": 0,
+    "hits": 0,
+    "pending": 0
+  }
+}
