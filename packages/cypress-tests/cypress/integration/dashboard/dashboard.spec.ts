@@ -8,12 +8,13 @@ const licenseCard = () => cy.get("#license-card");
 context("Zeal dashboard", () => {
 	beforeEach(() => {
 		authenticateUser(validUser.username, validUser.password);
-		cy.visit("/dashboard/home");
 	});
 
 	context("User with valid license", () => {
 		beforeEach(() => {
-			cy.intercept("GET", "**/user/me", { body: userWithLicense });
+			cy.intercept("GET", "**/user/me", { body: userWithLicense }).as("getUserInfo");
+			cy.visit("/dashboard/home");
+			cy.wait("@getUserInfo");
 		});
 		describe("When the dashboard has been loaded", () => {
 			it("Should display their license information", () => {
@@ -27,7 +28,9 @@ context("Zeal dashboard", () => {
 
 	context("User without license", () => {
 		beforeEach(() => {
-			cy.intercept("GET", "**/user/me", { fixture: "user-without-license.json" });
+			cy.intercept("GET", "**/user/me", { fixture: "user-without-license.json" }).as("getUserInfo");
+			cy.visit("/dashboard/home");
+			cy.wait("@getUserInfo");
 		});
 		describe("When the dashboard has been loaded", () => {
 			it("Should prompt the user to purchase/redeem a license", () => {

@@ -6,12 +6,13 @@ import { noLicensePromptShouldExist } from "../../support/assertions/dashboard/n
 context("Jobs page", () => {
 	beforeEach(() => {
 		authenticateUser(validUser.username, validUser.password);
-		cy.visit("/dashboard/jobs");
 	});
 
 	context("User with valid license", () => {
 		beforeEach(() => {
-			cy.intercept("GET", "**/user/me", { body: userWithLicense });
+			cy.intercept("GET", "**/user/me", { body: userWithLicense }).as("getUserInfo");
+			cy.visit("/dashboard/jobs");
+			cy.wait("@getUserInfo");
 		});
 		describe("When clicking on new job", () => {
 			it("Should show the form to create a job", () => {
@@ -23,7 +24,9 @@ context("Jobs page", () => {
 
 	context("User without license", () => {
 		beforeEach(() => {
-			cy.intercept("GET", "**/user/me", { fixture: "user-without-license.json" });
+			cy.intercept("GET", "**/user/me", { fixture: "user-without-license.json" }).as("getUserInfo");
+			cy.visit("/dashboard/jobs");
+			cy.wait("@getUserInfo");
 		});
 		describe("When clicking on new job", () => {
 			it("Should prompt the user to purchase/redeem a license", () => {
