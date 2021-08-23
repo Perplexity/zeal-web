@@ -118,6 +118,7 @@ const JobsView = (): JSX.Element => {
 											justify="flex-end"
 										>
 											<Button
+												id="new-job"
 												startIcon={<AddIcon />}
 												className={classes.newButton}
 												variant="contained"

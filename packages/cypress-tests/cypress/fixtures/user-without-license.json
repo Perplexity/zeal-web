@@ -1,0 +1,12 @@
+{
+  "id": 2,
+  "username": "test",
+  "email_address": "test@zeal-checker.app",
+  "iat": 1628891958,
+  "license": null,
+  "combo_stats": {
+    "failed": 0,
+    "hits": 0,
+    "pending": 0
+  }
+}

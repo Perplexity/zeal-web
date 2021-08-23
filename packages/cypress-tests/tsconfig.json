@@ -2,7 +2,8 @@
   "compilerOptions": {
     "target": "es5",
     "lib": ["es5", "dom", "esnext"],
-    "types": ["cypress", "node"]
+    "types": ["cypress", "cypress-file-upload", "node"],
+    "resolveJsonModule": true
   },
   "include": ["**/*.ts"]
 }
