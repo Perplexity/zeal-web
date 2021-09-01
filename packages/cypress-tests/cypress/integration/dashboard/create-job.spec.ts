@@ -35,6 +35,16 @@ context("Create a job", () => {
 		});
 	});
 
+	context("When more combos than a license allows", () => {
+		it("Should display an error message", () => {
+			cy.get("#new-job").click();
+			cy.fixture("200-combos.txt").then((content) => {
+				uploadFile("combos.txt", content, "text/plain");
+				cy.get(".MuiAlert-message").should("contain.text", `Cannot load 200 combos, your limit is ${userWithLicense.license.combo_limit} per job.`);
+			});
+		});
+	});
+
 	context("When uploading 100 valid combos", () => {
 		it("Should display a success message", () => {
 			cy.get("#new-job").click();

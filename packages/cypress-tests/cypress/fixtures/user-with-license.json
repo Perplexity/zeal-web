@@ -10,7 +10,7 @@
     "date_expires": 2631702265422,
     "job_limit": 3,
     "thread_limit": 50,
-    "combo_limit": 150000
+    "combo_limit": 150
   },
   "combo_stats": {
     "failed": 0,
