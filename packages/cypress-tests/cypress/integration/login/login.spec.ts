@@ -1,5 +1,5 @@
 import { attemptLogin, passwordField, signInButton, usernameField } from "../../support/actions/login/attempt-login";
-
+import * as validUser from "../../fixtures/valid-user.json";
 
 context("Zeal login page", () => {
 	beforeEach(() => {
@@ -16,14 +16,14 @@ context("Zeal login page", () => {
 
 	describe("When submitting a valid login", () => {
 		it("Should take us to the dashboard page", () => {
-			attemptLogin("test", "test");
+			attemptLogin(validUser.username, validUser.password);
 			cy.url().should("contain", "dashboard/home");
 		});
 	});
 
 	describe("When submitting an invalid login", () => {
 		it("Should display an error", () => {
-			attemptLogin("test", "wrongpassword");
+			attemptLogin("wronguser", "wrongpassword");
 			cy.get(".MuiAlert-message").should("contain.text", "Invalid username/password");
 		});
 	});
