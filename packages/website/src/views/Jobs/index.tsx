@@ -33,6 +33,7 @@ import { selectUser } from "../../store/userSlice";
 import NoLicense from "../../components/Dashboard/NoLicense";
 import CreateJob from "../../components/Dashboard/Jobs/CreateJob";
 import { GridRowSelectedParams } from "../../types/material-ui";
+import { Alert } from "@material-ui/lab";
 
 const useStyles = makeStyles((theme: Theme) => ({
 	root: {
@@ -115,8 +116,9 @@ const JobsView = (): JSX.Element => {
 										<Grid
 											container
 											style={{ paddingBottom: theme.spacing(2) }}
-											justify="flex-end"
+											justify="space-between"
 										>
+											<Alert severity="info"><Typography>You can view the results of a job by clicking its entry in the table.</Typography></Alert>
 											<Button
 												id="new-job"
 												startIcon={<AddIcon />}
