@@ -1,0 +1,13 @@
+{
+  "projectId": "UAT",
+  "baseUrl": "https://uat.zeal-checker.app",
+  "userAgent": "Zeal-Cypress-Client",
+  "chromeWebSecurity": false,
+  "defaultCommandTimeout": 15000,
+  "requestTimeout": 15000,
+  "viewportWidth": 1920,
+  "viewportHeight": 1080,
+  "scrollBehavior": "center",
+  "integrationFolder": "cypress/integration",
+  "fixturesFolder": "cypress/fixtures"
+}

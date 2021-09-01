@@ -6,3 +6,6 @@ build/
 .venv/
 __pycache__
 coverage/
+packages/website/.env
+videos/
+screenshots/

@@ -2,7 +2,7 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "build": "lerna bootstrap && lerna run build"
+    "build": "lerna bootstrap --ignore cypress-tests && lerna run build --ignore cypress-tests"
   },
   "devDependencies": {
     "lerna": "^4.0.0"

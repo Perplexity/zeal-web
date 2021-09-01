@@ -54,7 +54,7 @@ const Uploader = ({ label, file, onChange, onClear, loading }: Props): JSX.Eleme
 						<CircularProgress size={32} />
 					) : (
 						<>
-							<input type="file" accept=".txt" hidden onChange={onChange} />
+							<input id="uploader" type="file" accept=".txt" hidden onChange={onChange} />
 							<UploadIcon />
 						</>
 					)}
