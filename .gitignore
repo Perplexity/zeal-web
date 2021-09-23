@@ -9,3 +9,4 @@ coverage/
 packages/website/.env
 videos/
 screenshots/
+*.env
